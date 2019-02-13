@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Horcado</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="materialize/css/materialize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="ahork.css" />
+    
+</head>
+<body>
+    <div id = 'app'>
+        <!-- Cabecera -->
+        <div id="Cabecera">
+            <h1>Ahorcado</h1>
+        </div>        
+        <div v-if="Juego.fasejuego">
+            <!-- Imagenes Juego -->
+            <imagenesahork :imgsrc="picsrc"></imagenesahork>
+            <!-- Espacio Palabras -->
+            <h2>{{ Letters.print(' ') }}</h2>
+            <h2>Letras falladas: {{ Errorlet.print(', ') }}</h2>
+            <!-- Botones -->            
+            <input placeholder="Introduce tu Letra" v-model="SelLetter" maxlength="1">
+            <button @click='LetterHandler()'>Pulsa</button>
+        </div>
+        <div v-else-if="Juego.end">
+            <finjuego :Victoria = "ganar"></finjuego>
+        </div>
+        
+        <!-- Scripts -->
+        <script src="vue.js"></script>
+        <script src="materialize/js/materialize.js"></script>
+        <script src="palabras.js"></script>
+        <script src="ahork.js"></script>
+    </div>
+    
+    
+</body>
+
+
+</html>

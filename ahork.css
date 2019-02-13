@@ -1,0 +1,8 @@
+#app {
+    text-align: center;
+}
+
+button {
+    @extends .waves-effect;    
+    @extends .waves-light btn
+}
